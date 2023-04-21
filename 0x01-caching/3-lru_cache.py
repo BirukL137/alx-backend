@@ -20,12 +20,13 @@ class LRUCache(BaseCaching):
         discard the least recently used item based on LRU algoritm.
         """
         if key is not None and item is not None:
+            self.cache_data[key] = item
             if key in self.list:
                 self.list.append(self.list.pop(self.list.index(key)))
             else:
                 self.list.append(key)
 
-            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            if len(self.list) > BaseCaching.MAX_ITEMS:
                 discard_key = self.list.pop(0)
                 del self.cache_data[discard_key]
                 print(f"DISCARD: {discard_key}")
@@ -36,7 +37,6 @@ class LRUCache(BaseCaching):
         key, if key is not None and if key exists in dictionary.
         """
         if key is not None and key in self.cache_data:
-            self.list.append(key)
-            self.list.remove(key)
+            self.list.append(self.list.pop(self.list.index(key)))
             return self.cache_data[key]
         return None
