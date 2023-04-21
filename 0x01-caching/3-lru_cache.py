@@ -24,14 +24,15 @@ class LRUCache(BaseCaching):
         """
         if key is not None and item is not None:
             self.cache_data[key] = item
-            if key not in self.list:
-                self.list.append(key)
-            else:
+            if key in self.list:
                 self.list.append(self.list.pop(self.list.index(key)))
+            else:
+                self.list.append(key)
+
             if len(self.list) > BaseCaching.MAX_ITEMS:
-                discard = self.list.pop(0)
-                del self.cache_data[discard]
-                print('DISCARD: {:s}'.format(discard))
+                discard_key = self.list.pop(0)
+                del self.cache_data[discard_key]
+                print("DISCARD: {discard_key}")
 
     def get(self, key):
         """
