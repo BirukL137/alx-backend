@@ -21,10 +21,9 @@ class LRUCache(BaseCaching):
         """
         if key is not None and item is not None:
             if key in self.list:
-                self.list.remove(key)
-                del self.cache_data[key]
-            self.list.append(key)
-            self.cache_data[key] = item
+                self.list.append(self.list.pop(self.list.index(key)))
+            else:
+                self.list.append(key)
 
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 discard_key = self.list.pop(0)
