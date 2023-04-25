@@ -26,7 +26,7 @@ def index():
     return render_template('2-index.html')
 
 
-@babel.localselector
+@babel.localeselector
 def get_locale():
     """
     This function is invoked for each request to select a language
