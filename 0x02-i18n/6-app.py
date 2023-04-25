@@ -46,7 +46,7 @@ def before_request():
 @app.route('/')
 def index():
     """ Returns the index page. """
-    return render_template('5-index.html')
+    return render_template('6-index.html')
 
 
 @babel.localeselector
