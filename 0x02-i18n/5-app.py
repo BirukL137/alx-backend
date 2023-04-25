@@ -30,7 +30,7 @@ babel = Babel(app)
 
 def get_user():
     """ Returns a user id. """
-    id = request.args.get('login_as', None)
+    id = request.args.get('login_as')
     if id is not None and int(id) in users.keys():
         return users.get(int(id))
     return None
