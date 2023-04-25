@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Basic Babel setup
+Get locale from request
 """
 
 from flask_babel import Babel
@@ -23,7 +23,7 @@ babel = Babel(app)
 @app.route('/')
 def index():
     """ Returns the index page. """
-    return render_template('1-index.html')
+    return render_template('2-index.html')
 
 
 @babel.localselector
