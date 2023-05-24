@@ -1,4 +1,3 @@
-/* eslint-disable */
 const kue = require("kue");
 
 const jobs = [
